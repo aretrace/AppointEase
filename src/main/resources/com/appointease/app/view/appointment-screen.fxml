@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appointease.app.controller.AppointmentController">
+    <GridPane maxHeight="-Infinity" maxWidth="-Infinity">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+        <AnchorPane prefHeight="650.0" prefWidth="900.0">
+         <children>
+            <TableView fx:id="table" layoutX="14.0" layoutY="100.0" prefHeight="450.0" prefWidth="550.0" />
+            <Label layoutX="14.0" layoutY="65.0" text="Appointments">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Pane fx:id="fromPane" layoutX="586.0" layoutY="100.0" prefHeight="450.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Contact Name" />
+                  <ComboBox fx:id="contactNameComboBox" layoutX="13.0" layoutY="31.0" prefWidth="150.0" />
+                  <Label layoutX="14.0" layoutY="65.0" text="Title" />
+                  <TextField fx:id="titleTextField" layoutX="14.0" layoutY="82.0" />
+                  <Label layoutX="14.0" layoutY="119.0" text="Description" />
+                  <TextField fx:id="descriptionTextField" layoutX="13.0" layoutY="136.0" prefHeight="25.0" prefWidth="270.0" />
+                  <Label layoutX="14.0" layoutY="171.0" text="Location" />
+                  <TextField fx:id="locationTextField" layoutX="14.0" layoutY="188.0" />
+                  <Label layoutX="221.0" layoutY="171.0" text="Customer ID" />
+                  <ComboBox fx:id="customerIdComboBox" layoutX="223.0" layoutY="188.0" prefHeight="25.0" prefWidth="63.0" />
+                  <Label layoutX="13.0" layoutY="225.0" text="Type" />
+                  <TextField fx:id="typeTextField" layoutX="14.0" layoutY="242.0" />
+                  <Text fill="#000000cc" fontSmoothingType="LCD" layoutX="247.0" layoutY="238.0" opacity="0.8" stroke="#000000cc" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID" />
+                  <TextField fx:id="userIdTextField" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="223.0" layoutY="242.0" opacity="0.8" prefHeight="25.0" prefWidth="63.0" />
+                  <Label layoutX="14.0" layoutY="280.0" text="Date" />
+                  <DatePicker fx:id="datePicker" editable="false" layoutX="13.0" layoutY="297.0" prefHeight="25.0" prefWidth="149.0" />
+                  <Label layoutX="15.0" layoutY="340.0" text="Start Time" />
+                  <TextField fx:id="startTimeHourTextField" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="357.0" prefHeight="25.0" prefWidth="54.0" promptText="Hour" />
+                  <TextField fx:id="startTimeMinuteTextField" alignment="CENTER_RIGHT" layoutX="73.0" layoutY="357.0" prefHeight="25.0" prefWidth="54.0" promptText="Minute" />
+                  <Label layoutX="168.0" layoutY="340.0" text="End Time" />
+                  <TextField fx:id="endTimeHourTextField" alignment="CENTER_RIGHT" layoutX="165.0" layoutY="357.0" prefHeight="25.0" prefWidth="55.0" promptText="Hour" />
+                  <TextField fx:id="endTimeMinuteTextField" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="357.0" prefHeight="25.0" prefWidth="55.0" promptText="Minute" />
+                  <Label disable="true" layoutX="274.0" layoutY="14.0" text="ID" />
+                  <TextField fx:id="appointmentIdField" alignment="CENTER_RIGHT" disable="true" focusTraversable="false" layoutX="223.0" layoutY="31.0" prefHeight="25.0" prefWidth="63.0" promptText="ℵ₀" />
+                  <Button fx:id="addButton" layoutX="242.0" layoutY="424.0" mnemonicParsing="false" onAction="#addButtonHandler" text="Add" textFill="#00900a" />
+                  <Button fx:id="updateButton" layoutX="171.0" layoutY="424.0" mnemonicParsing="false" onAction="#updateButtonHandler" text="Update" textFill="#ab7a2a" />
+                  <Line endX="-100.0" endY="164.0" fill="TRANSPARENT" layoutX="248.0" layoutY="226.0" startX="-100.0" startY="123.0" stroke="#0000000d" />
+               </children>
+            </Pane>
+            <Button fx:id="deleteButton" focusTraversable="false" layoutX="512.0" layoutY="70.0" mnemonicParsing="false" onAction="#deleteButtonHandler" text="Delete" textFill="RED" />
+            <Button fx:id="clearSelectionButton" layoutX="14.0" layoutY="556.0" mnemonicParsing="false" onAction="#clearSelectionButtonHandler" text="Clear Selection" textFill="#0096c9" />
+            <RadioButton fx:id="viewThisMonthRadioButton" layoutX="238.0" layoutY="74.0" mnemonicParsing="false" onAction="#tableViewFilterHandler" text="This Month">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tableView" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="viewThisWeekRadioButton" layoutX="332.0" layoutY="74.0" mnemonicParsing="false" onAction="#tableViewFilterHandler" text="This Week" toggleGroup="$tableView" />
+            <RadioButton fx:id="viewAllRadioButton" layoutX="188.0" layoutY="74.0" mnemonicParsing="false" onAction="#tableViewFilterHandler" selected="true" text="All" toggleGroup="$tableView" />
+            <Button fx:id="toCustomerViewLabel" focusTraversable="false" layoutX="798.0" layoutY="14.0" mnemonicParsing="false" onAction="#toCustomerScreenHandler" text="Customers ➚">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button fx:id="toReportViewButton" focusTraversable="false" layoutX="490.0" layoutY="556.0" mnemonicParsing="false" onAction="#toReportScreenHandler" text="Reports 🗒">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+         </children></AnchorPane>
+    </GridPane>
+</StackPane>

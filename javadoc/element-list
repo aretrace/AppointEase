@@ -1,0 +1,6 @@
+module:com.appointease.app
+com.appointease.app
+com.appointease.app.controller
+com.appointease.app.model
+com.appointease.app.utils
+com.appointease.app.utils.exceptions

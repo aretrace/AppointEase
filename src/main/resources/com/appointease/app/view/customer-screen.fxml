@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appointease.app.controller.CustomerController">
+    <GridPane maxHeight="-Infinity" maxWidth="-Infinity">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+        <AnchorPane prefHeight="650.0" prefWidth="900.0">
+         <children>
+            <TableView fx:id="table" layoutX="14.0" layoutY="100.0" prefHeight="450.0" prefWidth="550.0" />
+            <Label layoutX="14.0" layoutY="65.0" text="Customers">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Pane fx:id="fromPane" layoutX="586.0" layoutY="100.0" prefHeight="450.0" prefWidth="300.0">
+               <children>
+                  <TextField fx:id="customerNameTextField" layoutX="14.0" layoutY="31.0" />
+                  <Label layoutX="14.0" layoutY="14.0" text="Customer Name" />
+                  <Label layoutX="14.0" layoutY="65.0" text="Address" />
+                  <TextField fx:id="addressTextField" layoutX="14.0" layoutY="82.0" />
+                  <Label layoutX="14.0" layoutY="119.0" text="Postal Code" />
+                  <TextField fx:id="postalCodeTextField" layoutX="14.0" layoutY="136.0" />
+                  <Label layoutX="14.0" layoutY="171.0" text="Phone Number" />
+                  <TextField fx:id="phoneTextField" layoutX="14.0" layoutY="188.0" />
+                  <TextField fx:id="customerIdField" alignment="CENTER_RIGHT" disable="true" layoutX="223.0" layoutY="31.0" prefHeight="25.0" prefWidth="63.0" promptText="ℵ₀" />
+                  <Label disable="true" layoutX="274.0" layoutY="14.0" text="ID" />
+                  <Button fx:id="addButton" layoutX="242.0" layoutY="424.0" mnemonicParsing="false" onAction="#addButtonHandler" text="Add" textFill="#00900a" />
+                  <Label layoutX="14.0" layoutY="280.0" text="First-level Division" />
+                  <ComboBox fx:id="firstLevelDivisionComboBox" layoutX="13.0" layoutY="297.0" prefWidth="150.0" />
+                  <Label layoutX="13.0" layoutY="225.0" text="Country" />
+                  <ComboBox fx:id="countryComboBox" layoutX="13.0" layoutY="242.0" prefWidth="150.0" />
+                  <Button fx:id="updateButton" layoutX="171.0" layoutY="424.0" mnemonicParsing="false" onAction="#updateButtonHandler" text="Update" textFill="#ab7a2a" />
+               </children>
+            </Pane>
+            <Button fx:id="deleteButton" focusTraversable="false" layoutX="512.0" layoutY="70.0" mnemonicParsing="false" onAction="#deleteButtonHandler" text="Delete" textFill="RED" />
+            <Button fx:id="clearSelectionButton" layoutX="14.0" layoutY="556.0" mnemonicParsing="false" onAction="#clearSelectionButtonHandler" text="Clear Selection" textFill="#0096c9" />
+            <Button fx:id="toAppointmentViewLable" layoutX="779.0" layoutY="14.0" mnemonicParsing="false" onAction="#toAppointmentScreenHandler" text="Appointments ➚" />
+         </children></AnchorPane>
+    </GridPane>
+</StackPane>
